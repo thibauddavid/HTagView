@@ -12,7 +12,7 @@ import UIKit
  HTagViewDelegate is a protocol to implement for responding to user interactions to the HTagView.
  */
 @objc
-public protocol HTagViewDelegate {
+public protocol HTagViewDelegate: class {
 //    optional func tagView(tagView: HTagView, didCancelTag tagTitle: String)
     @objc optional func tagView(_ tagView: HTagView, didCancelTagAtIndex index: Int)
 //    optional func tagView(tagView: HTagView, tagSelectionDidChange tagSelected: [String])
@@ -22,7 +22,7 @@ public protocol HTagViewDelegate {
 /**
  HTagViewDataSource is a protocol to implement for data source of the HTagView.
  */
-public protocol HTagViewDataSource {
+public protocol HTagViewDataSource: class {
     func numberOfTags(_ tagView: HTagView) -> Int
     func tagView(_ tagView: HTagView, titleOfTagAtIndex index: Int) -> String
     func tagView(_ tagView: HTagView, tagTypeAtIndex index: Int) -> HTagType
@@ -51,7 +51,7 @@ open class HTagView: UIView, HTagDelegate {
     /**
      HTagViewDataSource
      */
-    open var dataSource : HTagViewDataSource?{
+    open weak var dataSource : HTagViewDataSource?{
         didSet{
             reloadData()
         }
@@ -61,7 +61,7 @@ open class HTagView: UIView, HTagDelegate {
     /**
      HTagViewDelegate
      */
-    open var delegate : HTagViewDelegate?
+    open weak var delegate : HTagViewDelegate?
     
     // MARK: - HTagView Configuration
     /**

@@ -15,7 +15,7 @@ protocol HTagDelegate: class {
 
 class HTag: UIButton {
     
-    var delegate: HTagDelegate?
+    weak var delegate: HTagDelegate?
     
     var tagString : String = ""{
         didSet{
@@ -59,7 +59,7 @@ class HTag: UIButton {
     
     
     
-    func tagClicked(){
+    @objc func tagClicked(){
         if withCancelButton{
             delegate?.tagCancelled(self)
         }else{
