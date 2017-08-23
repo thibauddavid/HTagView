@@ -91,7 +91,7 @@ open class HTagView: UIView, HTagDelegate {
      - `.select` type: background color for the selected tags.
      */
     @IBInspectable
-    open var tagMainBackColor : UIColor = UIColor(colorLiteralRed: 100/255, green: 200/255, blue: 205/255, alpha: 1)
+    open var tagMainBackColor : UIColor = UIColor(red: 100.0/255.0, green: 200.0/255.0, blue: 205.0/255.0, alpha: 1)
     /**
      - `.cancel` type: text color for all tags.
      - `.select` type: text color for the selected tags.
